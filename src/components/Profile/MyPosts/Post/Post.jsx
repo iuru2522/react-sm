@@ -1,16 +1,20 @@
 import React from "react";
 import "./Post.css";
 
-const Post = () => {
+const Post = (props) => {
+
+
   return (
     <div className="items">
       <img src="https://www.blexar.com/avatar.png" />
-      Post 1
+      {props.message}
       <div>
-        <span>Like</span>
+        <span>Like {props.likesCount}</span>
       </div>
     </div>
   );
 };
+
+
 
 export default Post;

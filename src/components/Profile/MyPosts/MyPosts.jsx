@@ -14,10 +14,10 @@ const MyPosts = () => {
       </div>
       
         <div className="items">
-     <Post />
-     <Post />
-     <Post />
-     <Post />
+     <Post message='Hello, there' likesCount='5'/>
+     <Post message='Its my first post' likesCount='10'/>
+     <Post message='Its my second post' likesCount='15'/>
+     
        
       </div>
     </div>

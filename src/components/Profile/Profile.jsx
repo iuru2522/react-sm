@@ -5,7 +5,7 @@ import './Profile.css'
 
 const Profile = () => {
   return (
-    <div clasName="content">
+    <div className="content">
       <div className='insidec'>
         <img src="https://ak.picdn.net/shutterstock/videos/32692618/thumb/1.jpg" />
       </div>
