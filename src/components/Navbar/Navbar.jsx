@@ -8,11 +8,11 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <div className='itemz'>
-        <a>Profile</a>
+        <a href="/profile">Profile</a>
       </div>
 
       <div className='itemz'>
-        <a>Messages</a>
+        <a href="/dialogs">Messages</a>
       </div>
 
       <div className='itemz'>
