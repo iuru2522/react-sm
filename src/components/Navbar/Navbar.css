@@ -6,3 +6,7 @@
 .itemz {
     color: white;
 }
+
+.itemz  a.active {
+    color: white;
+}
