@@ -1,0 +1,19 @@
+.insidec img {
+    width: 1050px;
+    height: 180px;
+}
+
+
+.content {
+    grid-area: c;
+    background-color: black;
+
+}
+
+
+.items{
+
+    color: red;
+
+
+}
