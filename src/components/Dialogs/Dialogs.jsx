@@ -19,25 +19,28 @@ import "./Dialogs.css";
 // };
 
 const Dialogs = (props) => {
-  let dialogsData = [
-    { id: 1, name: "Julia" },
-    { id: 2, name: "Romko" },
-    { id: 3, name: "Dima" },
-    { id: 4, name: "Olia" },
-  ];
+  
+  //moved data from Dialogs to index.js
+  
+  // let dialogsData = [
+  //   { id: 1, name: "Julia" },
+  //   { id: 2, name: "Romko" },
+  //   { id: 3, name: "Dima" },
+  //   { id: 4, name: "Olia" },
+  // ];
+  
+  // let messagesData = [
+  //   { id: 1, message: "Hi" },
+  //   { id: 2, message: "How are you" },
+  //   { id: 3, message: "Yooo" },
+  //   { id: 4, message: "Yaaaaw" },
+  // ];
 
-  let dialogElements = dialogsData.map((d) => (
+  let dialogElements = props.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
-  let messagesData = [
-    { id: 1, message: "Hi" },
-    { id: 2, message: "How are you" },
-    { id: 3, message: "Yooo" },
-    { id: 4, message: "Yaaaaw" },
-  ];
-
-  let messagesElements = messagesData.map((m) => (
+  let messagesElements = props.messagesData.map((m) => (
     <Message message={m.message} />
   ));
 
