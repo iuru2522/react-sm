@@ -15,13 +15,17 @@ const App = (props) => {
         <Route path="/dialogs" component={Dialogs} />
         <Route path="/profile" component={Profile} />
 
-
+        //lesson 27
+        
+{/*           
+        <Route path="/dialogs" render={() => { SomeComponent } />
+        <Route path="/profile" render={() => { <Profile /> } />  */}
+        
+        
+       
         {/* <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} /> */}
-
-   
-   
      
       </div>
     </BrowserRouter>
