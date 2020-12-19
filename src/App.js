@@ -20,10 +20,14 @@ const App = (props) => {
       <div className="app-wrapper">
         <Header />
         <Navbar />
-        <Route path="/dialogs" render={() => <Dialogs dialogsData={props.dialogsData} messages={props.messages}/>}/>
-        <Route path="/profile" render={() => <Profile posts={props.posts} />}/>
+        <Route path="/dialogs" 
+        render={() => <Dialogs 
+        state={props.state.profilePage} messages={props.state.messagesPage}/>}/>
+        <Route path="/profile" 
+        render={() => <Profile 
+        state={props.state.profilePage} />}/>
 
-        //lesson 27
+       
         
 {/*           
         <Route path="/dialogs" render={() => { SomeComponent } />
