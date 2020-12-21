@@ -2,6 +2,7 @@ import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post";
 
+
 const MyPosts = (props) => {
   // let posts = [
   //   { id: 1, post: "Hello, there", likesCount: 12 },
@@ -21,7 +22,7 @@ let newPostElement = React.createRef();
 let addPost = () => {
   let text = newPostElement.current.value;
 
-  alert("YYYOBOI");
+  props.addPost(text);
 
 }
 

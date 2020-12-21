@@ -38,7 +38,24 @@
             { id: 3, message: "Yooo" },
             { id: 4, message: "Yaaaaw" },
           ]
-    }      
+    },    
+    sidebar: {
+
+    } 
   }
+
+export let addPost = (postMessage) => {
+
+  let newPost = {
+    id: 5,
+    post: postMessage,
+    likesCount: 120
+  };
+
+
+  state.profilePage.posts.push(newPost);
+}
+
+
 
   export default state;
