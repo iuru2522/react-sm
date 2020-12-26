@@ -39,7 +39,7 @@ let store = {
     let newPost = {
       id: 5,
       post: this._state.profilePage.newPostText,
-      likesCount: 120,
+      likesCount: 12,
     };
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
@@ -52,7 +52,7 @@ let store = {
   },
 
   subscribe(observer) {
-    this._rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   },
 };
 export default store;
