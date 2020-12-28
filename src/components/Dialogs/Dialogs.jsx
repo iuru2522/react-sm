@@ -47,7 +47,13 @@ const Dialogs = (props) => {
   return (
     <div className="dialogz">
       <div className="dialogs-item">{dialogElements}</div>
-      <div className="messages">{messagesElements}</div>
+      <div className="messages">
+        <div>{messagesElements}</div>
+        <div>
+          <div><textarea placehonder='Enter your name'></textarea></div>
+          <div><button onClick={ () => {alert("asdasd")}}>send</button></div>
+        </div>
+        </div>
     </div>
   );
 };
