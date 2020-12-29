@@ -1,5 +1,8 @@
 import React from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/state";
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCreator,
+} from "../../../redux/state";
 import "./MyPosts.css";
 import Post from "./Post/Post";
 
@@ -24,28 +27,28 @@ const MyPosts = (props) => {
     <Post message={p.post} likesCount={p.likesCount} />
   ));
 
-let newPostElement = React.createRef();
+  let newPostElement = React.createRef();
 
-let addPost = () => {
-  props.dispatch(addPostActionCreator()); //addPost
-  // props.updateNewPostText('');
-}
+  let addPost = () => {
+    props.dispatch(addPostActionCreator()); //addPost
+    // props.updateNewPostText('');
+  };
 
-let onPostChange = () => {
-  let text = newPostElement.current.value;
-  //props.updateNewPostText(text)
-let action = updateNewPostTextActionCreator(text);
-  props.dispatch(action); //updateNewPostText
-}
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    //props.updateNewPostText(text)
+    let action = updateNewPostTextActionCreator(text);
+    props.dispatch(action); //updateNewPostText
+  };
   return (
     <div className="postsblock">
       <h2>My posts</h2>
       <div>
         <div>
-          <textarea 
-          onChange={onPostChange} 
-          ref={newPostElement}
-          value={props.newPostText}
+          <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            value={props.newPostText}
           ></textarea>
         </div>
         <div>

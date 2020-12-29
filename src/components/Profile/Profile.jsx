@@ -10,15 +10,14 @@ const Profile = (props) => {
   //   { id: 3, post: "ts my second post", likesCount: 5 },
   // ];
 
-
   return (
     <div className="content">
       <ProfileInfo />
-      <MyPosts 
-      posts={props.profilePage.posts} 
-      newPostText={props.profilePage.newPostText}
-      dispatch={props.dispatch}
-      // addPost={props.addPost}
+      <MyPosts
+        posts={props.profilePage.posts}
+        newPostText={props.profilePage.newPostText}
+        dispatch={props.dispatch}
+        // addPost={props.addPost}
       />
     </div>
   );

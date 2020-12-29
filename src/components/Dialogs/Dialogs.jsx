@@ -1,8 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import "./Dialogs.css";
+import {
+  sendMessageCreator,
+  updateNewMessageBodyCreator,
+} from "../../redux/state";
 
 // const DialogItem = (props) => {
 //   let path = "/dialogs/" + props.id;
@@ -19,30 +23,42 @@ import "./Dialogs.css";
 // };
 
 const Dialogs = (props) => {
-  
   //moved data from Dialogs to index.js
-  
+
   // let dialogsData = [
   //   { id: 1, name: "Julia" },
   //   { id: 2, name: "Romko" },
   //   { id: 3, name: "Dima" },
   //   { id: 4, name: "Olia" },
   // ];
-  
+
   // let messagesData = [
   //   { id: 1, message: "Hi" },
   //   { id: 2, message: "How are you" },
   //   { id: 3, message: "Yooo" },
   //   { id: 4, message: "Yaaaaw" },
   // ];
-  
-  let dialogElements = props.state.dialogsData.map((d) => (
+
+  let state = props.store.getState().messagesPage;
+
+  let dialogElements = state.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
-  let messagesElements = props.state.messagesData.map((m) => (
+  let messagesElements = state.messagesData.map((m) => (
     <Message message={m.message} />
   ));
+
+  let newMessageBody = state.newMassagesBody;
+
+  let onSendMessageClick = () => {
+    props.store.dispatch(sendMessageCreator());
+  };
+
+  let onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body));
+  };
 
   return (
     <div className="dialogz">
@@ -50,10 +66,18 @@ const Dialogs = (props) => {
       <div className="messages">
         <div>{messagesElements}</div>
         <div>
-          <div><textarea placehonder='Enter your name'></textarea></div>
-          <div><button onClick={ () => {alert("asdasd")}}>send</button></div>
+          <div>
+            <textarea
+              value={newMessageBody}
+              onChange={onNewMessageChange}
+              placehonder="Enter your msg"
+            ></textarea>
+          </div>
+          <div>
+            <button onClick={onSendMessageClick}>Send</button>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 };
