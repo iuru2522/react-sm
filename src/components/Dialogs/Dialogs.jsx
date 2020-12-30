@@ -6,7 +6,7 @@ import "./Dialogs.css";
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
-} from "../../redux/state";
+} from "../../redux/messages-reducer";
 
 // const DialogItem = (props) => {
 //   let path = "/dialogs/" + props.id;
