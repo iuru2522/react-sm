@@ -2,7 +2,7 @@ import React from "react";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from "../../../redux/profile";
+} from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 // import "./MyPosts.css";
 // import Post from "./Post/Post";
@@ -18,6 +18,8 @@ import MyPosts from "./MyPosts";
 // }
 
 const MyPostsContainer = (props) => {
+
+  let state = props.store.getState();
   // let posts = [
   //   { id: 1, post: "Hello, there", likesCount: 12 },
   //   { id: 2, post: "Its my first post", likesCount: 10 },
@@ -34,7 +36,13 @@ const MyPostsContainer = (props) => {
     let action = updateNewPostTextActionCreator(text);
     props.store.dispatch(action); //updateNewPostText
   };
-  return <MyPosts updateNewPostText={onPostChange} addPost={addPost} post={props.posts}/>;
+  return <MyPosts 
+  updateNewPostText={onPostChange} 
+  addPost={addPost} 
+  // post={props.store.getState().posts}
+  posts={state.profilePage.posts}
+  newPostsText={state.profilePage.newPostText}
+  />;
 };
 
 export default MyPostsContainer;

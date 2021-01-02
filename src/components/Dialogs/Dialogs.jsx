@@ -39,7 +39,12 @@ const Dialogs = (props) => {
   //   { id: 4, message: "Yaaaaw" },
   // ];
 
-  let state = props.store.getState().messagesPage;
+  let state = props.dialogsPage;
+
+
+
+
+  // let state = props.store.getState().messagesPage;
 
   let dialogElements = state.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
@@ -52,12 +57,15 @@ const Dialogs = (props) => {
   let newMessageBody = state.newMassagesBody;
 
   let onSendMessageClick = () => {
-    props.store.dispatch(sendMessageCreator());
+
+    props.sendMessage();
+    // props.store.dispatch(sendMessageCreator());
   };
 
   let onNewMessageChange = (e) => {
     let body = e.target.value;
-    props.store.dispatch(updateNewMessageBodyCreator(body));
+    props.updateNewMessageBody(body);
+    // props.store.dispatch(updateNewMessageBodyCreator(body));
   };
 
   return (
