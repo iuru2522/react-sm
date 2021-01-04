@@ -39,10 +39,7 @@ const Dialogs = (props) => {
   //   { id: 4, message: "Yaaaaw" },
   // ];
 
-  let state = props.dialogsPage;
-
-
-
+  let state = props.messagesPage;
 
   // let state = props.store.getState().messagesPage;
 

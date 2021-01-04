@@ -7,7 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -21,7 +21,7 @@ const App = (props) => {
             // store={props.store}
             
             // state={props.state.messagesPage}
-              messages={props.state.messagesData}
+              // messages={state.messagesData}
             />
           )}
         />
