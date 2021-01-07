@@ -23,32 +23,17 @@ import {
 // };
 
 const Dialogs = (props) => {
-  //moved data from Dialogs to index.js
-
-  // let dialogsData = [
-  //   { id: 1, name: "Julia" },
-  //   { id: 2, name: "Romko" },
-  //   { id: 3, name: "Dima" },
-  //   { id: 4, name: "Olia" },
-  // ];
-
-  // let messagesData = [
-  //   { id: 1, message: "Hi" },
-  //   { id: 2, message: "How are you" },
-  //   { id: 3, message: "Yooo" },
-  //   { id: 4, message: "Yaaaaw" },
-  // ];
-
+  
   let state = props.messagesPage;
 
   // let state = props.store.getState().messagesPage;
 
   let dialogElements = state.dialogsData.map((d) => (
-    <DialogItem name={d.name} id={d.id} />
+    <DialogItem name={d.name} key={d.id} id={d.id} />
   ));
 
   let messagesElements = state.messagesData.map((m) => (
-    <Message message={m.message} />
+    <Message message={m.message} key={m.id} />
   ));
 
   let newMessageBody = state.newMassagesBody;
