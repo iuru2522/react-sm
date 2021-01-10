@@ -1,47 +1,16 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import "./Users.css";
+import * as axios from "axios";
 
 // import userPhoto from 
 
 let Users = (props) => {
   if (props.users.length === 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0")
-      .then((response) => {
-        props.setUsers(props.setUsers(response.data.items)
-        //     [
-        //   {
-        //     id: 1,
-        //     photoUrl: "https://tinyurl.com/y44qb46d",
-        //     followed: true,
-        //     fullName: "Romko",
-        //     status: "Me is a boss",
-        //     location: { city: "Minsk", country: "Belarus " },
-        //   },
-        //   {
-        //     id: 2,
-        //     photoUrl: "https://tinyurl.com/y44qb46d",
-        //     followed: true,
-        //     fullName: "Olko",
-        //     status: "Me is a boss",
-        //     location: { city: "Minsk", country: "Belarus " },
-        //   },
-        //   {
-        //     id: 3,
-        //     photoUrl: "https://tinyurl.com/y44qb46d",
-        //     followed: false,
-        //     fullName: "Dimon",
-        //     status: "Right there",
-        //     location: { city: "Minsk", country: "Belarus " },
-        //   },
-        // ]
-        
-        
-        );
-      });
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {props.setUsers(response.data.items)});
   }
-
+   // props.setUsers(response.data.items
+  
   return (
     <div>
       {props.users.map((u) => (
@@ -72,12 +41,12 @@ let Users = (props) => {
           </span>
           <span>
             <span>
-              <div>{u.fullName} </div>
+              <div>{u.name} </div>
               <div>{u.status}</div>
             </span>
             <span>
-              <div> {u.location.country}</div>
-              <div>{u.location.city}</div>
+              <div> {'u.location.country'}</div>
+              <div>{'u.location.city'}</div>
             </span>
           </span>
         </div>
