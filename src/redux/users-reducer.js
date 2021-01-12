@@ -3,32 +3,10 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS"
 
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   photoUrl: "https://tinyurl.com/y44qb46d",
-    //   followed: true,
-    //   fullName: "Romko",
-    //   status: "Me is a boss",
-    //   location: { city: "Minsk", country: "Belarus " },
-    // },
-    // {
-    //   id: 2,
-    //   photoUrl: "https://tinyurl.com/y44qb46d",
-    //   followed: true,
-    //   fullName: "Olko",
-    //   status: "Me is a boss",
-    //   location: { city: "Minsk", country: "Belarus " },
-    // },
-    // {
-    //   id: 3,
-    //   photoUrl: "https://tinyurl.com/y44qb46d",
-    //   followed: false,
-    //   fullName: "Dimon",
-    //   status: "Right there",
-    //   location: { city: "Minsk", country: "Belarus " },
-    // },
-  ],
+  users: [],
+  pageSize: 5,
+  totalUsersCount: 20,
+  currentPage: 2
 };
 
 const usersReducer = (state = initialState, action) => {
