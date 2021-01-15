@@ -41,7 +41,8 @@ class UsersContainer extends React.Component {
   };
 
   render() {
-    return <>
+    return <div>    {/* need to be fixed with <></>*/}
+     
         {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalUsersCount={this.props.totalUsersCount}
@@ -52,8 +53,7 @@ class UsersContainer extends React.Component {
           follow={this.props.follow}
           unfollow={this.props.unfollow}
         />
-      </>
-  
+      </div>
   }
 }
 
