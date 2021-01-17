@@ -19,7 +19,10 @@ class UsersContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+        {
+          withCredentials: true,
+        }
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
@@ -32,8 +35,12 @@ class UsersContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+        {
+          withCredentials: true,
+        }
       )
+
       .then((response) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
@@ -41,8 +48,10 @@ class UsersContainer extends React.Component {
   };
 
   render() {
-    return <div>    {/* need to be fixed with <></>*/}
-     
+    return (
+      <div>
+        {" "}
+        {/* need to be fixed with <></>*/}
         {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalUsersCount={this.props.totalUsersCount}
@@ -54,6 +63,7 @@ class UsersContainer extends React.Component {
           unfollow={this.props.unfollow}
         />
       </div>
+    );
   }
 }
 
@@ -67,10 +77,11 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps,  {
+export default connect(mapStateToProps, {
   follow,
   unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
-  toggleIsFetching})(UsersContainer);
+  toggleIsFetching,
+})(UsersContainer);
