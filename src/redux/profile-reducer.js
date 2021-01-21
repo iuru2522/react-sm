@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -43,20 +45,6 @@ const profileReducer = (state = initialState, action) => {
     }
     default:
       return state;
-
-    // if (action.type === ADD_POST) {
-
-    // let newPost = {
-    //   id: 5,
-    //   post: state.newPostText,
-    //   likesCount: 12,
-    // };
-    // state.posts.push(newPost);
-    // state.newPostText = "";
-    // this._callSubscriber(this._state); //rerenderEntireTree
-    //   } else if (action.type === UPDATE_NEW_POST_TEXT) {
-    //     state.newPostText = action.newText;
-    // this._callSubscriber(this._state); ////rerenderEntireTree
   }
 };
 
@@ -65,6 +53,13 @@ export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
+
+export const getUserProfile = (userId) => (dispatch) => {
+  usersAPI.getProfile(userId).then((response) => {
+    dispatch(setUserProfile(response.data));
+  });
+}
+
 export const updateNewPostTextActionCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
