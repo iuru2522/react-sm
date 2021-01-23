@@ -9,7 +9,7 @@ import {
   toggleIsFetching,
   unfollow,
   toggleFollowingProgress,
-  getUsers
+  getUsers,
 } from "../../redux/users-reducer";
 // import UsersAPIComponent from "./UsersAPIComponent";
 import Users from "./Users.js";
@@ -21,7 +21,10 @@ import { usersAPI } from "../../api/api";
 class UsersContainer extends React.Component {
   componentDidMount() {
     // this.props.toggleIsFetching(true);
-    this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+    this.props.getUsersThunkCreator(
+      this.props.currentPage,
+      this.props.pageSize
+    );
 
     // usersAPI
     //   .getUsers(this.props.currentPage, this.props.pageSize)
@@ -32,7 +35,6 @@ class UsersContainer extends React.Component {
     //   });
   }
   onPageChanged = (pageNumber) => {
-
     this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
 
     // this.props.setCurrentPage(pageNumber);
@@ -78,6 +80,8 @@ let mapStateToProps = (state) => {
   };
 };
 
+let withRedirect = withAuthRedirect(UsersContainer);
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
@@ -86,5 +90,5 @@ export default connect(mapStateToProps, {
   // setTotalUsersCount,
   // toggleIsFetching,
   toggleFollowingProgress,
-  getUsers
-})(UsersContainer);
+  getUsers,
+})(withRedirect);
