@@ -16,6 +16,7 @@ import Users from "./Users.js";
 import * as axios from "axios";
 import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
+import { compose } from "redux";
 // import { getUsers } from "../../api/api";
 
 class UsersContainer extends React.Component {
@@ -82,13 +83,27 @@ let mapStateToProps = (state) => {
 
 let withRedirect = withAuthRedirect(UsersContainer);
 
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  // setUsers,
-  setCurrentPage,
-  // setTotalUsersCount,
-  // toggleIsFetching,
-  toggleFollowingProgress,
-  getUsers,
-})(withRedirect);
+// export default connect(mapStateToProps, {
+//   follow,
+//   unfollow,
+//   // setUsers,
+//   setCurrentPage,
+//   // setTotalUsersCount,
+//   // toggleIsFetching,
+//   toggleFollowingProgress,
+//   getUsers,
+// })(withRedirect);
+
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    // setUsers,
+    setCurrentPage,
+    // setTotalUsersCount,
+    // toggleIsFetching,
+    toggleFollowingProgress,
+    getUsers,
+  })
+)(UsersContainer);
