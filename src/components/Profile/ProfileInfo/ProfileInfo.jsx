@@ -1,11 +1,12 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import "./ProfileInfo.css";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
 
 
-  if (!props.profile ){
+  if (!props.profile) {
     return <Preloader />
 
   }
@@ -18,12 +19,12 @@ const ProfileInfo = (props) => {
       </div>
 
       <div className='description'>
-        <img src={props.profile.photos.small}/>
-          Ava + Description
-          </div>
+        <img src={props.profile.photos.small} />
+        <ProfileStatus status={"Hello my friends"} />
+      </div>
     </div>
 
-    
+
   );
 };
 
