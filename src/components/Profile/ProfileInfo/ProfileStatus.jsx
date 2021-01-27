@@ -4,52 +4,56 @@ import Preloader from "../../common/Preloader/Preloader";
 
 
 class ProfileStatus extends React.Component {
+    // statusInputRef = React.createRef();
 
     state = {
-        editMode: true
+        editMode: false,
+        status: this.props.status
     }
-
-
-
     activateEdiMode() {
-        // console.log(this.state.editMode);
         this.setState({
             editMode: true
         })
-        // console.log(this.state.editMode);
     }
-
-
-    deactivateEdiMode() {
-        // console.log(this.state.editMode);
+    deactivateEdiMode = () => {
         this.setState({
             editMode: false
         })
-        // console.log(this.state.editMode);
+
+        this.props.updateStatus(
+            // this.statusInputRef.current.value
+            this.state.status
+        );
+
     }
 
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value;
+        });
 
 
+    }
 
     render() {
         return (
-
             <div>
                 {!this.state.editMode &&
                     <div>
                         <span onDoubleClick={this.activateEdiMode.bind(this)}>{this.props.status}</span>
-
                     </div>
                 }
                 {this.state.editMode &&
                     <div>
-                        <input autoFocus={true} onBlur={ this.deactivateEdiMode.bind(this)} value={this.props.status} />
-
+                        <input
+                            onChange={this.onStatusChange}
+                            // ref={this.statusInputRef}
+                            autoFocus={true}
+                            onBlur={this.deactivateEdiMode}
+                            value={this.state.status} />
                     </div>
                 }
             </div>
-
-
         );
     };
 }
