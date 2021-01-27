@@ -1,3 +1,6 @@
+import {usersAPI} from "../api/api";
+
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
@@ -68,7 +71,7 @@ const usersReducer = (state = initialState, action) => {
 
 export const followSuccess = (userId) => ({ type: FOLLOW, userId });
 
-export const unfollowSucess = (userId) => ({ type: UNFOLLOW, userId });
+export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 
 export const setUsers = (users) => ({ type: SET_USERS, users });
 
@@ -109,7 +112,7 @@ export const follow = (userId) => {
   return (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
 
-    usersAPI.follow(userId).then((response) => {
+    usersAPI.follow(userId).then(response => {
       if (response.data.resultCode == 0) {
         dispatch(followSuccess(userId));
       }

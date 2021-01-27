@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 // import Users from "./UsersAPIComponent";
 import { connect } from "react-redux";
 import {
@@ -18,15 +18,15 @@ import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
 import { compose } from "redux";
 // import { getUsers } from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     // this.props.toggleIsFetching(true);
-    this.props.getUsersThunkCreator(
+    this.props.getUsers(
       this.props.currentPage,
       this.props.pageSize
     );
-
     // usersAPI
     //   .getUsers(this.props.currentPage, this.props.pageSize)
     //   .then((data) => {
@@ -36,7 +36,7 @@ class UsersContainer extends React.Component {
     //   });
   }
   onPageChanged = (pageNumber) => {
-    this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
+    this.props.getUsers(pageNumber, this.props.pageSize);
 
     // this.props.setCurrentPage(pageNumber);
     // this.props.toggleIsFetching(true);
