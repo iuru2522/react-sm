@@ -31,7 +31,7 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
   let onAddPost = (values) => {
-    props.addPost(values.newPostText);
+    props.addPost(values.newPostText  );
 
     // props.dispatch(addPostActionCreator()); //addPost
     // props.updateNewPostText('');
@@ -47,19 +47,19 @@ const MyPosts = (props) => {
   return (
     <div className="postsblock">
       <h2>My posts</h2>
-      <AddNewPostForm onSubmit={onAddpost} />
+      <AddNewPostForm onSubmit={onAddPost} />
       <div className="items">{postsElements}</div>
     </div>
   );
 };
 
-AddNewPostForm = reduxForm({ form: "ProfileAddNewPostForm" })(AddNewPostForm)
+AddNewPostForm = reduxForm({ form: "ProfileAddNewPostForm" })(AddNewPostForm);
 
-const AddNewPostForm = (props) => {
+function AddNewPostForm (props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field name="newPostText" />
+        <Field name="newPostText" component="textarea" />
       </div>
       <div>
         <button>Add Post</button>
