@@ -5,7 +5,8 @@ import { required } from "../../utils/validators/validators";
 import { Input } from "../common/FormsControls/FormsControls";
 import { login } from "../../redux/auth-reducer"
 import { Redirect } from "react-router-dom";
-import "./Login .css";
+import "./Login.css";
+
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
@@ -41,13 +42,10 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
-
-
 const Login = (props) => {
   const onSubmit = (formData) => {
     props.login(formData.email, formData.password, formData.rememberMe);
   }
-
   if (props.isAuth) {
     return <Redirect to={"/profile"} />
   }
