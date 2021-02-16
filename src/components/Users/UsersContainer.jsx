@@ -9,6 +9,7 @@ import {
   toggleIsFetching,
   unfollow,
   toggleFollowingProgress,
+  requestUsers
   // getUsers,
 } from "../../redux/users-reducer";
 // import UsersAPIComponent from "./UsersAPIComponent";
@@ -91,6 +92,6 @@ export default compose(
     // setTotalUsersCount,
     // toggleIsFetching,
     toggleFollowingProgress,
-    getUsers,
+    getUsers: requestUsers
   })
 )(UsersContainer);
