@@ -1,4 +1,4 @@
-  import React from "react";
+import React from "react";
 // import Users from "./UsersAPIComponent";
 import { connect } from "react-redux";
 import {
@@ -50,7 +50,7 @@ class UsersContainer extends React.Component {
 
   render() {
     // console.log("USERS");
-    // return (
+    return (
       <div>
         {" "}
         {/* need to be fixed with <></>*/}
@@ -67,7 +67,7 @@ class UsersContainer extends React.Component {
           followingInProgress={this.props.followingInProgress}
         />
       </div>
-    );
+    )
   }
 }
 
@@ -81,11 +81,7 @@ let mapStateToProps = (state) => {
     followingInProgress: getFollowingInProgress(state),
   };
 };
-
-
-
 // let withRedirect = withAuthRedirect(UsersContainer);
-
 export default compose(
   connect(mapStateToProps, {
     follow,
