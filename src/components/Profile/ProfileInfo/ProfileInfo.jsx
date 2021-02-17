@@ -3,10 +3,10 @@ import Preloader from "../../common/Preloader/Preloader";
 import "./ProfileInfo.css";
 import ProfileStatus from "./ProfileStatus"
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
 
 
-  if (!props.profile) {
+  if (!profile) {
     return <Preloader />
 
   }
@@ -19,10 +19,10 @@ const ProfileInfo = (props) => {
       </div>
 
       <div className='description'>
-        <img src={props.profile.photos.small} />
+        <img src={profile.photos.small} />
         <ProfileStatus
-          status={props.status}
-          updateStatus={props.updateStatus}
+          status={status}
+          updateStatus={updateStatus}
         />
       </div>
     </div>
