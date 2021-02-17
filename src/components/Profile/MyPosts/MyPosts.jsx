@@ -28,6 +28,8 @@ const MyPosts = React.memo(props => {
   console.log("RENDER YO");
 
   let postsElements =
+  // [...props.posts]
+  // .reverse()
     props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
   let newPostElement = React.createRef();
