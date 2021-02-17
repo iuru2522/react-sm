@@ -9,7 +9,7 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) {
     return <Preloader />
 
-  }
+  } 
 
 
   return (
